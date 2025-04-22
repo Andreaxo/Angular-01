@@ -1,0 +1,35 @@
+<div class="container mt-4">
+  <h2 class="mb-4">Lista de Productos</h2>
+  <div class="d-flex justify-content-end mb-3">
+    <button class="btn btn-primary btn-sm" (click)="irACrearProducto()">Crear producto</button>
+  </div>
+  
+  <!-- TABLA -->
+  <table class="table table-bordered table-hover table-striped mt-4">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Precio</th>
+        <th>Categoría</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let producto of productos">
+        <td>{{ producto.id }}</td>
+        <td>{{ producto.nombre }}</td>
+        <td>{{ producto.descripcion }}</td>
+        <td>{{ producto.precio | currency:'COP':'symbol':'1.0-0' }}</td>
+        <td>{{ producto.categoria }}</td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="eliminar(producto.id!)">Eliminar</button>
+          <br>
+          <button class="btn btn-warning btn-sm" (click)="editar(producto.id!)">Modificar</button>
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
